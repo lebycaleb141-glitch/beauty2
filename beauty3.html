@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laurashia Glam Studio</title>
+<link rel="icon" href="./favicon (1).ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #1a0f14;
+    --accent: #c9a227;
+    --soft: #f9f4f0;
+    --text: #2c1e24;
+    --muted: #6b5a5f;
+    --white: #ffffff;
+    --card: #ffffff;
+    --border: #e8ddd5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--soft);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+  }
+  a { text-decoration: none; color: inherit; }
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(26, 15, 20, 0.95);
+    backdrop-filter: blur(10px);
+    color: white;
+  }
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 72px;
+  }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+  }
+  .logo span { color: var(--accent); }
+  nav {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+  }
+  nav a {
+    font-size: 15px;
+    opacity: 0.9;
+    transition: 0.2s;
+  }
+  nav a:hover { color: var(--accent); }
+  .btn {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--primary);
+    padding: 11px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: 0.25s;
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(201, 162, 39, 0.35);
+  }
+  .btn-outline {
+    background: transparent;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    color: white;
+  }
+  .btn-outline:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: white;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, #1a0f14 0%, #3d1f2d 100%);
+    color: white;
+    padding: 160px 0 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .hero h1 {
+    font-size: clamp(42px, 5.5vw, 68px);
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero p {
+    font-size: 18px;
+    opacity: 0.85;
+    max-width: 460px;
+    margin-bottom: 32px;
+  }
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .hero-image {
+    position: relative;
+    height: 480px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+  }
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero-badge {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    background: rgba(26,15,20,0.85);
+    color: var(--accent);
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  /* ===== SECTIONS ===== */
+  section { padding: 90px 0; }
+  .section-title {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .section-title h2 {
+    font-size: clamp(32px, 4vw, 44px);
+    margin-bottom: 12px;
+  }
+  .section-title p {
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* ===== SERVICES ===== */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+  }
+  .service-card {
+    background: var(--card);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    transition: 0.3s;
+  }
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+  }
+  .service-img {
+    height: 200px;
+    overflow: hidden;
+  }
+  .service-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.4s;
+  }
+  .service-card:hover .service-img img {
+    transform: scale(1.05);
+  }
+  .service-content {
+    padding: 24px;
+  }
+  .service-content h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+  .service-content p {
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+  .price-list {
+    list-style: none;
+  }
+  .price-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border);
+    font-size: 15px;
+  }
+  .price-list li:last-child { border: none; }
+  .price-list span { color: var(--accent); font-weight: 600; }
+
+  /* ===== GALLERY ===== */
+  .gallery {
+    background: white;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .gallery-item {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.4s;
+  }
+  .gallery-item:hover img {
+    transform: scale(1.08);
+  }
+  .gallery-item .label {
+    position: absolute;
+    bottom: 0;
+    left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    color: white;
+    padding: 20px 14px 14px;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+  }
+
+  /* ===== ABOUT ===== */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .about-img {
+    border-radius: 20px;
+    overflow: hidden;
+    height: 480px;
+  }
+  .about-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .about-content h2 {
+    font-size: 40px;
+    margin-bottom: 18px;
+  }
+  .about-content p {
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .features {
+    margin-top: 28px;
+    display: grid;
+    gap: 16px;
+  }
+  .feature {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .feature-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--accent);
+    color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ===== REVIEWS ===== */
+  .reviews {
+    background: var(--primary);
+    color: white;
+  }
+  .reviews .section-title p { color: rgba(255,255,255,0.7); }
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 50px;
+  }
+  .review-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(201,162,39,0.25);
+    border-radius: 16px;
+    padding: 28px;
+  }
+  .review-card p {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    line-height: 1.4;
+    margin-bottom: 16px;
+  }
+  .review-card cite {
+    color: var(--accent);
+    font-style: normal;
+    font-size: 14px;
+  }
+
+  /* Review form */
+  .review-form {
+    max-width: 500px;
+    margin: 0 auto;
+    background: white;
+    color: var(--text);
+    padding: 32px;
+    border-radius: 16px;
+  }
+  .review-form h3 {
+    margin-bottom: 18px;
+    font-size: 24px;
+  }
+
+  /* ===== BOOKING ===== */
+  .booking-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 50px;
+  }
+  .booking-info h2 {
+    font-size: 40px;
+    margin-bottom: 14px;
+  }
+  .booking-info p {
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+  .hours {
+    background: white;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  }
+  .hours div {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .hours div:last-child { border: none; }
+
+  form {
+    background: white;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    display: grid;
+    gap: 16px;
+  }
+  label {
+    font-size: 14px;
+    font-weight: 500;
+    display: grid;
+    gap: 6px;
+  }
+  input, select, textarea {
+    padding: 12px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font: inherit;
+    background: var(--soft);
+    transition: 0.2s;
+  }
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(201,162,39,0.2);
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  form .btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+  }
+  .success-msg {
+    display: none;
+    color: #2e7d32;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--primary);
+    color: rgba(255,255,255,0.75);
+    padding: 40px 0;
+    font-size: 14px;
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  footer a { color: var(--accent); }
+  footer strong {
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+  }
+
+  /* ===== ADMIN ===== */
+  #admin {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 200;
+    display: none;
+    overflow-y: auto;
+    padding: 30px 16px;
+  }
+  #admin.open { display: block; }
+  .admin-box {
+    max-width: 720px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 16px;
+    padding: 28px;
+  }
+  .admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  .admin-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .admin-tabs button {
+    padding: 8px 16px;
+    border-radius: 50px;
+    border: 1px solid var(--border);
+    background: white;
+    cursor: pointer;
+    font: inherit;
+  }
+  .admin-tabs button.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+  .admin-section {
+    display: none;
+  }
+  .admin-section.active { display: block; }
+  .admin-item {
+    background: var(--soft);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  .admin-item input, .admin-item textarea {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  .admin-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .hero-grid,
+    .about-grid,
+    .booking-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-image { height: 360px; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .reviews-grid { grid-template-columns: 1fr; }
+    nav a:not(.btn) { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header>
+  <div class="container header-inner">
+    <a href="#" class="logo"> Laurashia <span> Glam </span> Studio</a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#book" class="btn">Book Now</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <h1>Where beauty<br>meets <span>elegance</span></h1>
+      <p>Professional hair styling, braids, makeup, nails and skin care. We create looks that make you feel confident and beautiful.</p>
+      <div class="hero-buttons">
+        <a href="#book" class="btn">Book Appointment</a>
+        <a href="#services" class="btn btn-outline">View Services</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <!-- REPLACE THIS IMAGE: put your best salon photo here -->
+      <img src="Laurashia Glam Studio Gold Emblem.png" alt="Beautiful hair styling">
+      <div class="hero-badge">8+ Years of Excellence</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SERVICES ========== -->
+<section id="services">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Services</h2>
+      <p>Quality treatments with clear pricing. Final price is confirmed before we start.</p>
+    </div>
+    <div class="services-grid" id="services-list">
+      <!-- Services will be loaded here by JavaScript -->
+    </div>
+  </div>
+</section>
+
+<!-- ========== GALLERY ========== -->
+<section id="gallery" class="gallery">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Work</h2>
+      <p>Real results from real clients.</p>
+    </div>
+    <div class="gallery-grid">
+      <!-- REPLACE ALL THESE IMAGES with your real work photos -->
+      <div class="gallery-item">
+        <img src="knotless.jpeg" alt="Knotless braids">
+        <div class="label">Knotless Braids</div>
+      </div>
+      <div class="gallery-item">
+        <img src="gel2.jpeg" alt="Gel Styling">
+        <div class="label">Gel Styling</div>
+      </div>
+      <div class="gallery-item">
+        <img src="WhatsApp Image 2026-10-21 at 10.00.57 PM (1).jpeg" alt="dread retouch">
+        <div class="label">dread retouch</div>
+      </div>
+      <div class="gallery-item">
+        <img src="doublefix.jpeg" alt="Double Fixing">
+        <div class="label">Double Fixing</div>
+      </div>
+      <div class="gallery-item">
+        <img src="WhatsApp Image 2026-10-21 at 10.04.36 PM (1).jpeg" alt="Gel nails">
+        <div class="label">Gel Nails</div>
+      </div>
+      <div class="gallery-item">
+        <img src="twist.jpeg" alt="Natural twists">
+        <div class="label">Natural Twists</div>
+      </div>
+      <div class="gallery-item">
+        <img src="wave.jpeg" alt="Wave install">
+        <div class="label">Wave Install</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Glossy Curly Puff Portrait.png" alt="Soft curls">
+        <div class="label">Soft Curls</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-img">
+      <!-- REPLACE THIS IMAGE with a photo of your salon or team -->
+      <img src="knotless.jpeg" alt="Our studio">
+    </div>
+    <div class="about-content">
+      <h2>A calm space for beautiful results</h2>
+      <p>We are a professional hair and beauty studio focused on quality, hygiene and personal care. Every client receives a proper consultation so we can deliver exactly what you want.</p>
+      <p>Whether you need protective styles, colour, bridal makeup or a full glam look, our experienced team is ready for you.</p>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">1</div>
+          <div>
+            <strong>Consultation first</strong>
+            <p style="color:var(--muted);font-size:14px;margin:0">We discuss your goals and budget before starting.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">2</div>
+          <div>
+            <strong>Quality products</strong>
+            <p style="color:var(--muted);font-size:14px;margin:0">We only use trusted brands for hair and skin.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">3</div>
+          <div>
+            <strong>On-time service</strong>
+            <p style="color:var(--muted);font-size:14px;margin:0">Your appointment starts at the scheduled time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== REVIEWS ========== -->
+<section id="reviews" class="reviews">
+  <div class="container">
+    <div class="section-title">
+      <h2>Client Reviews</h2>
+      <p>What our clients say about us</p>
+    </div>
+    <div class="reviews-grid" id="reviews-list">
+      <!-- Reviews loaded by JavaScript -->
+    </div>
+
+    <div class="review-form">
+      <h3>Leave a Review</h3>
+      <form id="reviewForm">
+        <label>Your Name
+          <input type="text" id="reviewName" required>
+        </label>
+        <label>Your Review
+          <textarea id="reviewText" rows="3" required></textarea>
+        </label>
+        <button type="submit" class="btn" style="width:100%">Send via WhatsApp</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ========== BOOKING ========== -->
+<section id="book">
+  <div class="container booking-grid">
+    <div class="booking-info">
+      <h2>Book Your Appointment</h2>
+      <p>Fill the form and we will receive your request on WhatsApp so we can confirm your time quickly.</p>
+      <div class="hours">
+        <div><span>Monday – Friday</span><span>8:00 AM – 7:00 PM</span></div>
+        <div><span>Saturday</span><span>8:00 AM – 8:00 PM</span></div>
+        <div><span>Sunday</span><span>10:00 AM – 4:00 PM</span></div>
+      </div>
+    </div>
+
+    <form id="bookingForm">
+      <div class="form-row">
+        <label>Full Name
+          <input type="text" id="name" required>
+        </label>
+        <label>Phone Number
+          <input type="tel" id="phone" required>
+        </label>
+      </div>
+      <label>Service
+        <select id="service"></select>
+      </label>
+      <div class="form-row">
+        <label>Preferred Date
+          <input type="date" id="date" required>
+        </label>
+        <label>Preferred Time
+          <input type="time" id="time" required>
+        </label>
+      </div>
+      <label>Notes (optional)
+        <textarea id="notes" rows="3" placeholder="Hair length, inspiration photos, allergies..."></textarea>
+      </label>
+      <button type="submit" class="btn">Send Booking Request</button>
+      <p class="success-msg" id="successMsg">Opening WhatsApp...</p>
+    </form>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <strong>Laurashia Glam Studio</strong><br>
+      Hair & Beauty Studio
+    </div>
+    <div>
+      WhatsApp: <a id="phoneLink" href="#"></a><br>
+      <a href="#" id="adminLogin">Laurashia</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== ADMIN PANEL ========== -->
+<div id="admin">
+  <div class="admin-box">
+    <div class="admin-header">
+      <h2>Admin Panel</h2>
+      <div class="admin-tabs">
+        <button class="active" data-tab="prices">Prices</button>
+        <button data-tab="reviews">Reviews</button>
+        <button data-tab="settings">Settings</button>
+        <button id="closeAdmin">Close</button>
+      </div>
+    </div>
+
+    <div id="tab-prices" class="admin-section active">
+      <div id="adminPrices"></div>
+      <button class="btn" id="addCategory" style="margin-top:12px">+ Add Category</button>
+    </div>
+
+    <div id="tab-reviews" class="admin-section">
+      <p style="margin-bottom:16px;color:var(--muted)">Reviews sent by clients arrive on WhatsApp. Add the ones you want to display.</p>
+      <div id="adminReviews"></div>
+      <div class="admin-item">
+        <strong>Add New Review</strong>
+        <input type="text" id="newReviewName" placeholder="Client name">
+        <textarea id="newReviewText" rows="3" placeholder="Review text"></textarea>
+        <button class="btn" id="addReview">Add Review</button>
+      </div>
+    </div>
+
+    <div id="tab-settings" class="admin-section">
+      <div class="admin-item">
+        <label>WhatsApp Number (with country code, numbers only)</label>
+        <input type="text" id="adminWhatsapp">
+      </div>
+      <div class="admin-item">
+        <label>admin</label>
+        <input type="text" id="adminPassword">
+      </div>
+    </div>
+
+    <div class="admin-actions">
+      <button class="btn" id="downloadSite">Download Updated Website</button>
+      <button class="btn" style="background:#888" id="resetChanges">Discard Changes</button>
+    </div>
+  </div>
+</div>
+
+<!-- ========== DATA (edit prices & reviews here) ========== -->
+<script type="application/json" id="siteData">
+{
+  "whatsapp": "254114980301",
+  "password": "Admin Login",
+  "categories": [
+    {
+      "name": "Hair Styling",
+      "image": "images/service-hair.jpg",
+      "description": "Professional cuts, styling and treatments",
+      "items": [
+        {"name": "gel styling", "price": "from 300"},
+        {"name": "Wash & Blow Dry", "price": "from 250"},
+        {"name": "Deep Conditioning", "price": "from 500"},
+        {"name": "Haircut & Styling", "price": "from 500"}
+      ]
+    },
+    {
+      "name": "Braids & Protective Styles",
+      "image": "images/service-braids.jpg",
+      "description": "Neat, long-lasting protective styles",
+      "items": [
+        {"name": "Knotless Braids", "price": "from 1500"},
+        {"name": "Box Braids", "price": "from 800"},
+        {"name": "Cornrows", "price": "from 200"},
+        {"name": "Twists", "price": "from 300"},
+        {"name": "Locs Maintenance", "price": "from 500"}
+      ]
+    },
+    {
+      "name": "Makeup",
+      "image": "images/service-makeup.jpg",
+      "description": "From soft natural to full glam",
+      "items": [
+        {"name": "Bridal Makeup", "price": "from 5,000"},
+        {"name": "Full Glam", "price": "from 3,500"},
+        {"name": "Soft Natural", "price": "from 2,500"},
+        {"name": "Party Makeup", "price": "from 3,000"}
+      ]
+    },
+    {
+      "name": "Nails & Skin",
+      "image": "images/service-nails.jpg",
+      "description": "Manicure, pedicure and facial treatments",
+      "items": [
+        {"name": "Gel Nails", "price": "from 300"},
+        {"name": "Acrylic Nails", "price": "from 500"},
+        {"name": "Manicure", "price": "from 500"},
+        {"name": "Pedicure", "price": "from 500"},
+        {"name": "Facial", "price": "from 2,000"}
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "name": "Amina K.",
+      "text": "My knotless braids lasted over 6 weeks and still looked fresh. Highly recommend!"
+    },
+    {
+      "name": "Grace M.",
+      "text": "The bridal makeup was perfect. I felt so confident on my wedding day."
+    },
+    {
+      "name": "Faith N.",
+      "text": "Best silk press I’ve ever had. My hair was soft and shiny for days."
+    }
+  ]
+}
+</script>
+
+<script>
+  // ========== LOAD DATA ==========
+  let data = JSON.parse(document.getElementById('siteData').textContent);
+  try {
+    const saved = localStorage.getItem('luxe_data');
+    if (saved) data = JSON.parse(saved);
+  } catch(e) {}
+
+  function saveData() {
+    localStorage.setItem('luxe_data', JSON.stringify(data));
+  }
+
+  // ========== RENDER SERVICES ==========
+  function renderServices() {
+    const container = document.getElementById('services-list');
+    container.innerHTML = data.categories.map(cat => `
+      <div class="service-card">
+        <div class="service-img">
+          <img src="${cat.image}" alt="${cat.name}" onerror="this.src='https://via.placeholder.com/400x300?text=${encodeURIComponent(cat.name)}'">
+        </div>
+        <div class="service-content">
+          <h3>${cat.name}</h3>
+          <p>${cat.description}</p>
+          <ul class="price-list">
+            ${cat.items.map(item => `
+              <li><span>${item.name}</span><span>${item.price}</span></li>
+            `).join('')}
+          </ul>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // ========== RENDER REVIEWS ==========
+  function renderReviews() {
+    document.getElementById('reviews-list').innerHTML = data.reviews.map(r => `
+      <div class="review-card">
+        <p>"${r.text}"</p>
+        <cite>— ${r.name}</cite>
+      </div>
+    `).join('');
+  }
+
+  // ========== RENDER SERVICE DROPDOWN ==========
+  function renderServiceSelect() {
+    const select = document.getElementById('service');
+    select.innerHTML = data.categories.map(cat => `
+      <optgroup label="${cat.name}">
+        ${cat.items.map(item => `<option value="${item.name}">${item.name}</option>`).join('')}
+      </optgroup>
+    `).join('');
+  }
+
+  // ========== UPDATE PHONE ==========
+  function updatePhone() {
+    const num = data.whatsapp.replace(/\D/g, '');
+    document.getElementById('phoneLink').href = `tel:+${num}`;
+    document.getElementById('phoneLink').textContent = `+${num}`;
+  }
+
+  function openWhatsApp(message) {
+    const num = data.whatsapp.replace(/\D/g, '');
+    window.open(`https://wa.me/${num}?text=${encodeURIComponent(message)}`, '_blank');
+  }
+
+  // ========== INITIAL RENDER ==========
+  renderServices();
+  renderReviews();
+  renderServiceSelect();
+  updatePhone();
+  document.getElementById('date').min = new Date().toISOString().split('T')[0];
+
+  // ========== BOOKING FORM ==========
+  document.getElementById('bookingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const service = document.getElementById('service').value;
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+    const notes = document.getElementById('notes').value.trim();
+
+    let msg = `Hello, I would like to book an appointment.\n\n`;
+    msg += `Name: ${name}\n`;
+    msg += `Phone: ${phone}\n`;
+    msg += `Service: ${service}\n`;
+    msg += `Date: ${date}\n`;
+    msg += `Time: ${time}`;
+    if (notes) msg += `\nNotes: ${notes}`;
+
+    document.getElementById('successMsg').style.display = 'block';
+    openWhatsApp(msg);
+  });
+
+  // ========== REVIEW FORM ==========
+  document.getElementById('reviewForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('reviewName').value.trim();
+    const text = document.getElementById('reviewText').value.trim();
+    openWhatsApp(`New Review\nName: ${name}\nReview: ${text}`);
+    this.reset();
+  });
+
+  // ========== ADMIN ==========
+  const adminPanel = document.getElementById('admin');
+
+  document.getElementById('adminLogin').addEventListener('click', function(e) {
+    e.preventDefault();
+    const pass = prompt('Enter admin password:');
+    if (pass === data.password) {
+      openAdmin();
+    } else if (pass !== null) {
+      alert('Wrong password');
+    }
+  });
+
+  document.getElementById('closeAdmin').addEventListener('click', () => {
+    adminPanel.classList.remove('open');
+  });
+
+  // Tabs
+  document.querySelectorAll('.admin-tabs button[data-tab]').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.admin-tabs button').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
+      this.classList.add('active');
+      document.getElementById('tab-' + this.dataset.tab).classList.add('active');
+    });
+  });
+
+  function openAdmin() {
+    // Fill settings
+    document.getElementById('adminWhatsapp').value = data.whatsapp;
+    document.getElementById('adminPassword').value = data.password;
+
+    // Render prices
+    renderAdminPrices();
+    renderAdminReviews();
+    adminPanel.classList.add('open');
+  }
+
+  function renderAdminPrices() {
+    const box = document.getElementById('adminPrices');
+    box.innerHTML = data.categories.map((cat, ci) => `
+      <div class="admin-item">
+        <input value="${cat.name}" onchange="updateCatName(${ci}, this.value)" placeholder="Category name">
+        <input value="${cat.description}" onchange="updateCatDesc(${ci}, this.value)" placeholder="Description">
+        <input value="${cat.image}" onchange="updateCatImage(${ci}, this.value)" placeholder="Image path (e.g. images/service-hair.jpg)">
+        ${cat.items.map((item, ii) => `
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <input value="${item.name}" onchange="updateItemName(${ci},${ii},this.value)" style="flex:1">
+            <input value="${item.price}" onchange="updateItemPrice(${ci},${ii},this.value)" style="width:120px">
+            <button onclick="removeItem(${ci},${ii})" style="padding:0 10px;cursor:pointer">×</button>
+          </div>
+        `).join('')}
+        <button class="btn" style="margin-top:10px;padding:6px 14px;font-size:13px" onclick="addItem(${ci})">+ Add Service</button>
+        <button style="margin-top:8px;padding:6px 14px;font-size:13px;background:#c62828;color:white;border:none;border-radius:6px;cursor:pointer" onclick="removeCategory(${ci})">Delete Category</button>
+      </div>
+    `).join('');
+  }
+
+  function renderAdminReviews() {
+    document.getElementById('adminReviews').innerHTML = data.reviews.map((r, i) => `
+      <div class="admin-item">
+        <strong>${r.name}</strong>
+        <p style="margin:6px 0;color:var(--muted)">${r.text}</p>
+        <button onclick="removeReview(${i})" style="padding:4px 12px;cursor:pointer;font-size:13px">Remove</button>
+      </div>
+    `).join('');
+  }
+
+  // Admin helper functions
+  window.updateCatName = (i, val) => { data.categories[i].name = val; saveData(); renderServices(); renderServiceSelect(); };
+  window.updateCatDesc = (i, val) => { data.categories[i].description = val; saveData(); renderServices(); };
+  window.updateCatImage = (i, val) => { data.categories[i].image = val; saveData(); renderServices(); };
+  window.updateItemName = (ci, ii, val) => { data.categories[ci].items[ii].name = val; saveData(); renderServices(); renderServiceSelect(); };
+  window.updateItemPrice = (ci, ii, val) => { data.categories[ci].items[ii].price = val; saveData(); renderServices(); };
+  window.addItem = (ci) => {
+    data.categories[ci].items.push({name: 'New Service', price: 'from 0'});
+    saveData(); renderAdminPrices(); renderServices(); renderServiceSelect();
+  };
+  window.removeItem = (ci, ii) => {
+    data.categories[ci].items.splice(ii, 1);
+    saveData(); renderAdminPrices(); renderServices(); renderServiceSelect();
+  };
+  window.removeCategory = (ci) => {
+    if (confirm('Delete this category?')) {
+      data.categories.splice(ci, 1);
+      saveData(); renderAdminPrices(); renderServices(); renderServiceSelect();
+    }
+  };
+  window.removeReview = (i) => {
+    data.reviews.splice(i, 1);
+    saveData(); renderAdminReviews(); renderReviews();
+  };
+
+  document.getElementById('addCategory').addEventListener('click', () => {
+    data.categories.push({
+      name: 'New Category',
+      image: 'images/service-new.jpg',
+      description: 'Description here',
+      items: [{name: 'New Service', price: 'from 0'}]
+    });
+    saveData(); renderAdminPrices(); renderServices();
+  });
+
+  document.getElementById('addReview').addEventListener('click', () => {
+    const name = document.getElementById('newReviewName').value.trim();
+    const text = document.getElementById('newReviewText').value.trim();
+    if (!name || !text) return alert('Please fill both fields');
+    data.reviews.push({name, text});
+    saveData();
+    document.getElementById('newReviewName').value = '';
+    document.getElementById('newReviewText').value = '';
+    renderAdminReviews();
+    renderReviews();
+  });
+
+  document.getElementById('adminWhatsapp').addEventListener('change', function() {
+    data.whatsapp = this.value;
+    saveData();
+    updatePhone();
+  });
+  document.getElementById('adminPassword').addEventListener('change', function() {
+    data.password = this.value;
+    saveData();
+  });
+
+  document.getElementById('downloadSite').addEventListener('click', () => {
+    // Update the JSON in the page
+    const clone = document.documentElement.cloneNode(true);
+    clone.querySelector('#siteData').textContent = JSON.stringify(data, null, 2);
+    // Clear dynamic content
+    clone.querySelector('#services-list').innerHTML = '';
+    clone.querySelector('#reviews-list').innerHTML = '';
+    clone.querySelector('#service').innerHTML = '';
+    clone.querySelector('#admin').classList.remove('open');
+
+    const blob = new Blob(['<!DOCTYPE html>\n' + clone.outerHTML], {type: 'text/html'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'index.html';
+    a.click();
+  });
+
+  document.getElementById('resetChanges').addEventListener('click', () => {
+    if (confirm('Discard all changes and reload original data?')) {
+      localStorage.removeItem('luxe_data');
+      location.reload();
+    }
+  });
+</script>
+</body>
+</html>
